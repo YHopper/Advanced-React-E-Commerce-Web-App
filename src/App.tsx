@@ -16,19 +16,21 @@ function App() {
 
   return (
     <div className="app-shell py-4 px-3 px-md-4">
-      <header className="topbar rounded-4 border shadow-sm p-4 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <header className="topbar rounded-5 shadow-sm p-4 mb-4 d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3">
         <div>
-          <p className="eyebrow text-uppercase mb-1">Fake Store</p>
-          <h1 className="h3 fw-bold mb-0">Modern Market</h1>
+          <p className="eyebrow text-uppercase mb-1">FakeStore Shop</p>
+          <h1 className="h3 fw-bold mb-2">Digital storefront</h1>
+          <p className="mb-0 text-white-50">Browse products, filter by category, and manage your cart with persistence.</p>
         </div>
-        <nav className="topbar-nav d-flex gap-2">
-          <button type="button" className="btn btn-outline-dark" onClick={() => setView('home')}>
-            Home
+
+        <div className="d-flex gap-2 align-items-center flex-wrap">
+          <button type="button" className={`btn ${view === 'home' ? 'btn-primary' : 'btn-outline-primary'}`} onClick={() => setView('home')}>
+            Shop
           </button>
-          <button type="button" className="btn btn-dark" onClick={() => setView('cart')}>
+          <button type="button" className={`btn ${view === 'cart' ? 'btn-primary' : 'btn-outline-primary'}`} onClick={() => setView('cart')}>
             Cart ({cartCount})
           </button>
-        </nav>
+        </div>
       </header>
 
       {view === 'home' ? <Home /> : <ShoppingCart onContinueShopping={() => setView('home')} />}
